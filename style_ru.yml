@@ -1,10 +1,10 @@
 ---
-fontsize: 11pt
+fontsize: 10pt
 mainfont: 'DejaVu Serif'
 sansfont: 'DejaVu Sans'
 monofont: 'DejaVu Sans Mono'
 monofontoptions: 
-  - Scale=0.75
+  - Scale=0.9
 header-includes:
     - \usepackage[russian, english]{babel}
     - \usepackage[utf8]{inputenc}
