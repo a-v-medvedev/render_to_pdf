@@ -35,6 +35,7 @@ DFN=$(date '+%d_%b_%Y')
 
 doc=$(mktemp ${DOC}_XXXXXX.md)
 awk -f mdhack.awk ${DOC}.md > $doc 
+sed -i 's!^---pagebreak[ \t]*$!<div style="page-break-after: always; visibility: hidden">\n\\pagebreak\n</div>\n!' $doc
 #echo $doc
 
 # ODT version:
