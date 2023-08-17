@@ -34,7 +34,7 @@ DT=$(date '+%d %b %Y')
 DFN=$(date '+%d_%b_%Y')
 
 doc=$(mktemp ${DOC}_XXXXXX.md)
-awk -f mdhack.awk ${DOC}.md > $doc 
+gawk -f mdhack.awk ${DOC}.md > $doc 
 # for opendocument (.odt): ```{=openxml}\n<text:p text:style-name="Pagebreak"/>\n```
 sed -i 's!^---pagebreak[ \t]*$!```{=openxml}\n<w:p><w:r><w:br w:type="page"/></w:r></w:p>\n```!' $doc
 #echo $doc

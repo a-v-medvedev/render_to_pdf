@@ -1,1 +1,6 @@
- \renewenvironment{Shaded} {\begin{snugshade}\small} {\end{snugshade}}
+\makeatletter
+\@ifundefined{Shaded}{
+}{
+  \renewenvironment{Shaded} {\begin{snugshade}\small} {\end{snugshade}}
+}
+\makeatother 
