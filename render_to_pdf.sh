@@ -30,6 +30,7 @@ DFN=$(date '+%d_%b_%Y')
 
 doc=$(mktemp ${DOC}_XXXXXX.md)
 cat ${DOC}.md | sed 's/^---$/\&nbsp;\n\n---\n\n\&nbsp;/' > $doc
+sed -i 's!^---blankline[ \t]*$!\n\&nbsp;\n!' $doc 
 sed -i 's!^---pagebreak[ \t]*$!<div style="page-break-after: always; visibility: hidden">\n\\pagebreak\n</div>\n!' $doc 
 sed -i 's!^```[a-z][a-z]*[ \t]*$!`\\smallskip`{=latex}\n&!' $doc
 pandoc --pdf-engine lualatex -H make-code-footnotesize.tex --include-in-header=nohyphen.cfg --highlight-style=highlight.theme -M "title=$TITLE" -M "author=$AUTHOR" -M "date=$DT" ${doc} style_${STYLE}.yml -o ${DOC}_${DFN}.pdf
